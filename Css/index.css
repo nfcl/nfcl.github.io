@@ -19,7 +19,7 @@
 }
 
 .AsideBar-HideButton {
-    background-image: url(../Cancel.png);
+    background-image: url(../Resources/index/Cancel.png);
     background-size: contain;
     width: 50px;
     height: 50px;
@@ -30,7 +30,7 @@
 }
 
 .AsideBar-ShowButton {
-    background-image: url(../Show.png);
+    background-image: url(../Resources/index/Show.png);
     background-size: contain;
     width: 50px;
     height: 50px;
