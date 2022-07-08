@@ -1,0 +1,41 @@
+
+* {
+    margin: 0;
+    padding: 0px;
+}
+
+.AsideBar-Hide {
+    animation: AsideBar-Hide 0s;
+    position: relative;
+    left: -155px;
+    transition: left 1s;
+}
+
+.AsideBar-Show {
+    animation: AsideBar-Hide 0s;
+    position: relative;
+    left: 0px;
+    transition: left 1s;
+}
+
+.AsideBar-HideButton {
+    background-image: url(../Cancel.png);
+    background-size: contain;
+    width: 50px;
+    height: 50px;
+    position: relative;
+    left: 5px;
+    border: none;
+    top: 2px;
+}
+
+.AsideBar-ShowButton {
+    background-image: url(../Show.png);
+    background-size: contain;
+    width: 50px;
+    height: 50px;
+    position: relative;
+    left: 5px;
+    border: none;
+    top: 2px;
+}

@@ -4,20 +4,35 @@
 <head>
     <meta charset="utf-8" />
     <title>主界面</title>
+    <link rel="stylesheet" href="Css/index.css" />
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+        function AsideBarChange() {
+            var State = document.getElementById('AsideBarStateButton').className;
+            if (State == 'AsideBar-HideButton') {
+                document.getElementById('AsideBarStateButton').className = 'AsideBar-ShowButton';
+                document.getElementById('AsideBar').className = 'AsideBar-Hide';
+            }
+            else {
+                document.getElementById('AsideBarStateButton').className = 'AsideBar-HideButton';
+                document.getElementById('AsideBar').className = 'AsideBar-Show';
+            }
+        }
+    </script>
 </head>
 <body>
     <header>
         <div style="text-align:center"><strong>Hello World!</strong></div>
     </header>
-    <nav>
-        这里是导航栏
-    </nav>
-    <aside>
-        这里是侧边栏
-    </aside>
-    <article>
-        这里是文章
-    </article>
+    <div id="AsideBar" class="AsideBar-Show" style="display:inline-block; width:200px; height:500px; font-size:0px; ">
+        <div style=" display: inline-block; background-color: skyblue; width: 150px; height: 500px; text-align: center;">
+            <img src="20220708203503.gif" style="position:relative; top:20px;" />
+        </div>
+        <div style="display: inline-block;">
+            <button id="AsideBarStateButton" class="AsideBar-HideButton" onclick="AsideBarChange()">
+            </button>
+        </div>
+    </div>
     <footer>
         <div style="text-align:center"><strong>Bye Bye</strong></div>
     </footer>
