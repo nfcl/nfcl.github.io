@@ -1,6 +1,4 @@
-# nfcl.github.io
-
-MyWebsit
+# MyWebsit - nfcl.github.io
 
 最近心血来潮想做一个自己的网站
 
@@ -8,4 +6,4 @@ MyWebsit
 
 但还没想好要干嘛
 
-(另外这vsc还没整好，上传还是用vs传的)
+###### (另外这vsc还没整好，上传还是用vs传的)
