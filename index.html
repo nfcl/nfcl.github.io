@@ -24,17 +24,20 @@
     <header>
         <div style="text-align:center"><strong>Hello World!</strong></div>
     </header>
-    <div id="AsideBar" class="AsideBar-Show" style="display:inline-block; width:200px; height:500px; font-size:0px; ">
-        <div style=" display: inline-block; background-color: skyblue; width: 150px; height: 500px; text-align: center;">
+    <div id="AsideBar" class="AsideBar-Show" style="z-index:999; font-size:0px; ">
+        <div style=" float:left; background-color: skyblue; width: 150px; height: 500px; text-align: center;">
             <img src="Resources/index/20220708203503.gif" style="position:relative; top:20px;" />
         </div>
-        <div style="display: inline-block;">
+        <div style="float:left">
             <button id="AsideBarStateButton" class="AsideBar-HideButton" onclick="AsideBarChange()">
             </button>
         </div>
     </div>
+    <div style="text-align:center">
+        123
+    </div>
     <footer>
-        <div style="text-align:center"><strong>Bye Bye</strong></div>
+        <div style=" text-align:center"><strong>ByeBye</strong></div>
     </footer>
 </body>
 </html>
