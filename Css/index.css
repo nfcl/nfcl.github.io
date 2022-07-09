@@ -91,9 +91,9 @@
     opacity: 1;
 }
 
-.Game-2048-DirectButton{
+.Game-2048-DirectButton {
     background-position: center center;
-    background-repeat: no-repeat; 
-    background-image: url('Resources/index/cross.png');
+    background-repeat: no-repeat;
+    background-image: url('../Resources/index/cross.png');
     background-size: contain;
 }
