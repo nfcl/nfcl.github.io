@@ -76,6 +76,23 @@ function Update_Map() {
     for (var i = 0; i < Game2048Rect.length; ++i) {
         for (var j = 0; j < Game2048Rect[i].length; ++j) {
             document.getElementById("Game-2048-Cell-" + i.toString() + "-" + j.toString()).innerHTML = Game2048Rect[i][j].toString();
+            switch (Game2048Rect[i][j].toString().length) {
+                case 1:
+                    document.getElementById("Game-2048-Cell-" + i.toString() + "-" + j.toString()).style.fontSize = "30px";
+                    break;
+                case 2:
+                    document.getElementById("Game-2048-Cell-" + i.toString() + "-" + j.toString()).style.fontSize = "30px";
+                    break;
+                case 3:
+                    document.getElementById("Game-2048-Cell-" + i.toString() + "-" + j.toString()).style.fontSize = "26px";
+                    break;
+                case 4:
+                    document.getElementById("Game-2048-Cell-" + i.toString() + "-" + j.toString()).style.fontSize = "22px";
+                    break;
+                case 5:
+                    document.getElementById("Game-2048-Cell-" + i.toString() + "-" + j.toString()).style.fontSize = "18px";
+                    break;
+            }
         }
     }
 }
