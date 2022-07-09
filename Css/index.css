@@ -37,3 +37,63 @@
     left: 5px;
     border: none;
 }
+#Game-2048{
+    transition:height 2s;
+}
+.Game-2048-Init {
+    height: 30px;
+}
+
+.Game-2048-Start {
+    height: 246.4px;
+}
+
+.Game-2048-StartButton-Init {
+    margin: auto;
+}
+.Game-2048-StartButton-Start {
+    display:none;
+}
+
+#Game-2048-BackGround {
+    transition: width 2s ease-in-out .5s;
+    transition: height 2s ease-in-out .5s;
+    z-index:-1;
+    position:fixed;
+    left:0;
+    right:0;
+    margin:auto;
+}
+.Game-2048-BackGround-Init {
+    width:0px;
+    height:0px;
+}
+.Game-2048-BackGround-Start {
+    width: 246.4px;
+    height: 246.4px;
+    background-color: red;
+}
+.Game-2048-Cell {
+    background-color: pink;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    user-select: none;
+}
+#Game-2048-Body {
+    transition: opacity 2s ease-in-out 2s;
+}
+
+.Game-2048-Body-Init {
+    opacity: 0;
+}
+.Game-2048-Body-Start{
+    opacity: 1;
+}
+
+.Game-2048-DirectButton{
+    background-position: center center;
+    background-repeat: no-repeat; 
+    background-image: url('Resources/index/cross.png');
+    background-size: contain;
+}

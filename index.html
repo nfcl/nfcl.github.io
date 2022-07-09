@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="Css/index.css" />
     <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
     <script>
+        var Game2048Rect;
         function AsideBarChange() {
             var State = document.getElementById('AsideBarStateButton').className;
             if (State == 'AsideBar-HideButton') {
@@ -17,6 +18,22 @@
                 document.getElementById('AsideBarStateButton').className = 'AsideBar-HideButton';
                 document.getElementById('AsideBar').className = 'AsideBar-Show';
             }
+        }
+        function Game_2048_Start() {
+            Game2048Rect = new Array(new Array(0, 0, 0, 0), new Array(0, 0, 0, 0), new Array(0, 0, 0, 0), new Array(0, 0, 0, 0));
+            
+            for(var i = 0;i<Game2048Rect.length;++i){
+                for(var j =0;j<Game2048Rect[i].length;++j){
+                    document.getElementById("Game-2048-Cell-" + i.toString() + "-" + j.toString()).innerHTML = Game2048Rect[i][j].toString();
+                }
+            }
+            document.getElementById('Game-2048').className = 'Game-2048-Start';
+            document.getElementById('Game-2048-StartButton').className = 'Game-2048-StartButton-Start';
+            document.getElementById('Game-2048-BackGround').className = "Game-2048-BackGround-Start";
+            document.getElementById('Game-2048-Body').className = "Game-2048-Body-Start";
+        }
+        function Game_2048_OnMouseOver(event) {
+            console.log(event);
         }
     </script>
 </head>
@@ -33,11 +50,55 @@
             </button>
         </div>
     </div>
-    <div style="text-align:center">
-        123
+    <div style="text-align:center">这里没什么东西呢</div>
+    <div id="Game-2048" class="Game-2048-Init" style="text-align:center;">
+        <button id="Game-2048-StartButton" class="Game-2048-StartButton-Init" onclick="Game_2048_Start()">来点游戏？</button>
+        <div id="Game-2048-BackGround" class="Game-2048-BackGround-Init"></div>
+        <table id="Game-2048-Body" class="Game-2048-Body-Init" style="margin:auto;" draggable="false" >
+            <tr>
+                <td colspan="6">
+                    <div class="Game-2048-DirectButton" style="height:17.6px;" ></div>
+                </td>
+            </tr>
+            <tr>
+                <td rowspan="4">
+                    <div >←</div>
+                </td>
+                <td><div id="Game-2048-Cell-0-0" class="Game-2048-Cell" >2</div></td>
+                <td><div id="Game-2048-Cell-0-1" class="Game-2048-Cell">4</div></td>
+                <td><div id="Game-2048-Cell-0-2" class="Game-2048-Cell">8</div></td>
+                <td><div id="Game-2048-Cell-0-3" class="Game-2048-Cell">16</div></td>
+                <td rowspan="4">
+                    <div >→</div>
+                </td>
+            </tr>
+            <tr>
+                <td><div id="Game-2048-Cell-1-0" class="Game-2048-Cell">32</div></td>
+                <td><div id="Game-2048-Cell-1-1" class="Game-2048-Cell">64</div></td>
+                <td><div id="Game-2048-Cell-1-2" class="Game-2048-Cell">128</div></td>
+                <td><div id="Game-2048-Cell-1-3" class="Game-2048-Cell">256</div></td>
+            </tr>
+            <tr>
+                <td><div id="Game-2048-Cell-2-0" class="Game-2048-Cell">512</div></td>
+                <td><div id="Game-2048-Cell-2-1" class="Game-2048-Cell">1024</div></td>
+                <td><div id="Game-2048-Cell-2-2" class="Game-2048-Cell">2048</div></td>
+                <td><div id="Game-2048-Cell-2-3" class="Game-2048-Cell">4096</div></td>
+            </tr>
+            <tr>
+                <td><div id="Game-2048-Cell-3-0" class="Game-2048-Cell">8192</div></td>
+                <td><div id="Game-2048-Cell-3-1" class="Game-2048-Cell">16384</div></td>
+                <td><div id="Game-2048-Cell-3-2" class="Game-2048-Cell">32768</div></td>
+                <td><div id="Game-2048-Cell-3-3" class="Game-2048-Cell">65528</div></td>
+            </tr>
+            <tr>
+                <td colspan="6">
+                    <div class="Game-2048-DirectButton" style="height:17.6px;transform: rotate(180deg); "></div>
+                </td>
+            </tr>
+        </table>
     </div>
     <footer>
-        <div style=" text-align:center"><strong>ByeBye</strong></div>
+        <div style=" text-align:center; transition:all 1s;"><strong>ByeBye</strong></div>
     </footer>
 </body>
 </html>
