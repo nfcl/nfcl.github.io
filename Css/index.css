@@ -59,8 +59,7 @@
 }
 
 #Game-2048-BackGround {
-    transition: width 2s ease-in-out .5s;
-    transition: height 2s ease-in-out .5s;
+    transition: height 2s ease-in-out 0.5s,width 2s ease-in-out 2.5s;
     z-index: -1;
     position: fixed;
     left: 0;
@@ -69,7 +68,7 @@
 }
 
 .Game-2048-BackGround-Init {
-    width: 0px;
+    width: 10px;
     height: 0px;
 }
 
@@ -80,16 +79,24 @@
 }
 
 .Game-2048-Cell {
-    background-color: black;
     color: white;
     width: 50px;
     height: 50px;
     line-height: 50px;
     user-select: none;
+    background-color: black;
+    transition: opacity 2s;
+}
+.Game-2048-Cell-Default {
+    opacity:1;
+}
+
+.Game-2048-Cell-Grow {
+    opacity:0.5;
 }
 
 #Game-2048-Body {
-    transition: opacity 2s ease-in-out 2.2s;
+    transition: opacity 2s ease-in-out 4s;
     margin: auto;
     background-color: white;
     border: 5px solid black
@@ -107,6 +114,7 @@
     background-position: center center;
     background-repeat: no-repeat;
     background-size: contain;
+    transition: background-color ease-out 1s,background-image 1s ease-out 0.4s;
 }
 
     .Game-2048-DirectButton:hover {
