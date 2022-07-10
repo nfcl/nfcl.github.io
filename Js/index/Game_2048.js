@@ -13,81 +13,159 @@ function Game_2048_Start() {
     document.getElementById('Game-2048-BackGround').className = "Game-2048-BackGround-Start";
     document.getElementById('Game-2048-Body').className = "Game-2048-Body-Start";
 }
+var ButtonDirect = "None";
+function Game_2048_mousemousemove(event) {
+    var x = event.offsetX - (248.64 + 5) / 2;
+    var y = event.offsetY - (248.64 + 5) / 2;
+    if (Math.abs(x) < (248.64 + 5) / 4 && Math.abs(y) < (248.64 + 5) / 4) {
+        if (ButtonDirect != "None") {
+            //console.log("None");
+            ButtonDirect = "None";
+            document.getElementById("Game-2048-DirectButton-Top").className = "Game-2048-DirectButton Game-2048-DirectButton-Top";
+            document.getElementById("Game-2048-DirectButton-Bottom").className = "Game-2048-DirectButton Game-2048-DirectButton-Bottom";
+            document.getElementById("Game-2048-DirectButton-Left").className = "Game-2048-DirectButton Game-2048-DirectButton-Left";
+            document.getElementById("Game-2048-DirectButton-Right").className = "Game-2048-DirectButton Game-2048-DirectButton-Right";
+        }
+        return;
+    }
+    if (Math.abs(x) > Math.abs(y)) {
+        if (x > (248.64 + 5) / 4) {
+            if (ButtonDirect != "Right") {
+                //console.log("Right");
+                ButtonDirect = "Right";
+                document.getElementById("Game-2048-DirectButton-Top").className = "Game-2048-DirectButton Game-2048-DirectButton-Top";
+                document.getElementById("Game-2048-DirectButton-Bottom").className = "Game-2048-DirectButton Game-2048-DirectButton-Bottom";
+                document.getElementById("Game-2048-DirectButton-Left").className = "Game-2048-DirectButton Game-2048-DirectButton-Left";
+                document.getElementById("Game-2048-DirectButton-Right").className = "Game-2048-DirectButton Game-2048-DirectButton-Right-hover";
+            }
+        }
+        else if (x < -(248.64 + 5) / 4) {
+            if (ButtonDirect != "Left") {
+                //console.log("Left");
+                ButtonDirect = "Left";
+                document.getElementById("Game-2048-DirectButton-Top").className = "Game-2048-DirectButton Game-2048-DirectButton-Top";
+                document.getElementById("Game-2048-DirectButton-Bottom").className = "Game-2048-DirectButton Game-2048-DirectButton-Bottom";
+                document.getElementById("Game-2048-DirectButton-Left").className = "Game-2048-DirectButton Game-2048-DirectButton-Left-hover";
+                document.getElementById("Game-2048-DirectButton-Right").className = "Game-2048-DirectButton Game-2048-DirectButton-Right";
+            }
+        }
+    }
+    else {
+        if (y > (248.64 + 5) / 4) {
+            if (ButtonDirect != "Bottom") {
+                //console.log("Bottom");
+                ButtonDirect = "Bottom";
+                document.getElementById("Game-2048-DirectButton-Top").className = "Game-2048-DirectButton Game-2048-DirectButton-Top";
+                document.getElementById("Game-2048-DirectButton-Bottom").className = "Game-2048-DirectButton Game-2048-DirectButton-Bottom-hover";
+                document.getElementById("Game-2048-DirectButton-Left").className = "Game-2048-DirectButton Game-2048-DirectButton-Left";
+                document.getElementById("Game-2048-DirectButton-Right").className = "Game-2048-DirectButton Game-2048-DirectButton-Right";
+            }
+        }
+        else if (y < -(248.64 + 5) / 4) {
+            if (ButtonDirect != "Top") {
+                //console.log("Top");
+                ButtonDirect = "Top";
+                document.getElementById("Game-2048-DirectButton-Top").className = "Game-2048-DirectButton Game-2048-DirectButton-Top-hover";
+                document.getElementById("Game-2048-DirectButton-Bottom").className = "Game-2048-DirectButton Game-2048-DirectButton-Bottom";
+                document.getElementById("Game-2048-DirectButton-Left").className = "Game-2048-DirectButton Game-2048-DirectButton-Left";
+                document.getElementById("Game-2048-DirectButton-Right").className = "Game-2048-DirectButton Game-2048-DirectButton-Right";
+
+            }
+        }
+    }
+}
+function Game_2048_mousedown(event) {
+    //console.log(event);
+    if (ButtonDirect == "None") {
+        return;
+    }
+    else {
+        eval("Game_2048_" + ButtonDirect + "();");
+    }
+}
 function Game_2048_Top() {
     var result = merge_Rect(Game2048Rect);
     if (!result[0]) return;
-    Cell_Move(result[1], "Top");
+    Cell_Move(result[1], "top");
     RandPosition();
     Update_Map();
 }
 function Game_2048_Bottom() {
-    Game2048Rect = Rectangle_Rotate(Game2048Rect ,"fz");
+    Game2048Rect = Rectangle_Rotate(Game2048Rect, "fz");
     var result = merge_Rect(Game2048Rect);
-    Game2048Rect = Rectangle_Rotate(Game2048Rect,"fz");
+    Game2048Rect = Rectangle_Rotate(Game2048Rect, "fz");
     if (!result[0]) return;
-    Cell_Move(Rectangle_Rotate(result[1], "fz"), "Bottom");
+    Cell_Move(Rectangle_Rotate(result[1], "fz"), "bottom");
     RandPosition();
     Update_Map();
 }
 function Game_2048_Left() {
-    Game2048Rect = Rectangle_Rotate(Game2048Rect,"ssz");
+    Game2048Rect = Rectangle_Rotate(Game2048Rect, "ssz");
     var result = merge_Rect(Game2048Rect);
-    Game2048Rect = Rectangle_Rotate(Game2048Rect,"nsz");
+    Game2048Rect = Rectangle_Rotate(Game2048Rect, "nsz");
     if (!result[0]) return;
-    Cell_Move(Rectangle_Rotate(result[1], "nsz"), "Left");
+    Cell_Move(Rectangle_Rotate(result[1], "nsz"), "left");
     RandPosition();
     Update_Map();
 
 }
 function Game_2048_Right() {
-    Game2048Rect = Rectangle_Rotate(Game2048Rect,"nsz");
+    Game2048Rect = Rectangle_Rotate(Game2048Rect, "nsz");
     var result = merge_Rect(Game2048Rect);
-    Game2048Rect = Rectangle_Rotate(Game2048Rect,"ssz");
+    Game2048Rect = Rectangle_Rotate(Game2048Rect, "ssz");
     if (!result[0]) return;
-    Cell_Move(Rectangle_Rotate(result[1], "ssz"), "Right");
+    Cell_Move(Rectangle_Rotate(result[1], "ssz"), "right");
     RandPosition();
     Update_Map();
 
 }
 function Cell_Move(matrix, direct) {
-    switch (direct) {
-        case "Top":
-            for (var col = 0; col < matrix[0].length; ++col) {
-                for (var row = 0; row < matrix.length; ++row) {
-                    if (matrix[row][col] != 0) {
-                        document.getElementById("Game-2048-Cell-" + row.toString() + "-" + col.toString()).style.top = "-" + (52 * matrix[row][col]).toString() + "px";
-                    }
-                }
+    for (var col = 0; col < matrix[0].length; ++col) {
+        for (var row = 0; row < matrix.length; ++row) {
+            if (matrix[row][col] != 0) {
+                eval('document.getElementById("Game-2048-Cell-" + row.toString() + "-" + col.toString()).style.' + direct + ' = "-" + (52 * matrix[row][col]).toString() + "px";')
             }
-            break;
-        case "Bottom":
-            for (var col = 0; col < matrix[0].length; ++col) {
-                for (var row = 0; row < matrix.length; ++row) {
-                    if (matrix[row][col] != 0) {
-                        document.getElementById("Game-2048-Cell-" + row.toString() + "-" + col.toString()).style.bottom = "-" + (52 * matrix[row][col]).toString() + "px";
-                    }
-                }
-            }
-            break;
-        case "Left":
-            for (var col = 0; col < matrix[0].length; ++col) {
-                for (var row = 0; row < matrix.length; ++row) {
-                    if (matrix[row][col] != 0) {
-                        document.getElementById("Game-2048-Cell-" + row.toString() + "-" + col.toString()).style.left = "-" + (52 * matrix[row][col]).toString() + "px";
-                    }
-                }
-            }
-            break;
-        case "Right":
-            for (var col = 0; col < matrix[0].length; ++col) {
-                for (var row = 0; row < matrix.length; ++row) {
-                    if (matrix[row][col] != 0) {
-                        document.getElementById("Game-2048-Cell-" + row.toString() + "-" + col.toString()).style.right = "-" + (52 * matrix[row][col]).toString() + "px";
-                    }
-                }
-            }
-            break;
+        }
     }
+    //}
+    //switch (direct) {
+    //    case "Top":
+    //        for (var col = 0; col < matrix[0].length; ++col) {
+    //            for (var row = 0; row < matrix.length; ++row) {
+    //                if (matrix[row][col] != 0) {
+    //                    document.getElementById("Game-2048-Cell-" + row.toString() + "-" + col.toString()).style.top = "-" + (52 * matrix[row][col]).toString() + "px";
+    //                }
+    //            }
+    //        }
+    //        break;
+    //    case "Bottom":
+    //        for (var col = 0; col < matrix[0].length; ++col) {
+    //            for (var row = 0; row < matrix.length; ++row) {
+    //                if (matrix[row][col] != 0) {
+    //                    document.getElementById("Game-2048-Cell-" + row.toString() + "-" + col.toString()).style.bottom = "-" + (52 * matrix[row][col]).toString() + "px";
+    //                }
+    //            }
+    //        }
+    //        break;
+    //    case "Left":
+    //        for (var col = 0; col < matrix[0].length; ++col) {
+    //            for (var row = 0; row < matrix.length; ++row) {
+    //                if (matrix[row][col] != 0) {
+    //                    document.getElementById("Game-2048-Cell-" + row.toString() + "-" + col.toString()).style.left = "-" + (52 * matrix[row][col]).toString() + "px";
+    //                }
+    //            }
+    //        }
+    //        break;
+    //    case "Right":
+    //        for (var col = 0; col < matrix[0].length; ++col) {
+    //            for (var row = 0; row < matrix.length; ++row) {
+    //                if (matrix[row][col] != 0) {
+    //                    document.getElementById("Game-2048-Cell-" + row.toString() + "-" + col.toString()).style.right = "-" + (52 * matrix[row][col]).toString() + "px";
+    //                }
+    //            }
+    //        }
+    //        break;
+    //}
 }
 function RandPosition() {
     var ans;
@@ -192,7 +270,7 @@ function merge_Rect(matrix) {
     return [IsMove, Move];
 }
 
-function Rectangle_Rotate(martix,direct) {
+function Rectangle_Rotate(martix, direct) {
     var ResultRect = new Array();
     for (var i = 0; i < martix[0].length; ++i) {
         ResultRect.push(new Array());

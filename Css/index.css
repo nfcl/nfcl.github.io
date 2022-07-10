@@ -79,6 +79,7 @@
 }
 
 .Game-2048-Cell {
+    pointer-events:none;
     color: white;
     width: 50px;
     height: 50px;
@@ -87,13 +88,6 @@
     background-color: black;
     transition: left 0.25s, opacity 0.5s,top 0.25s,bottom 0.25s,right 0.25s;
     position: relative;
-}
-.Game-2048-Cell-Default {
-    opacity:1;
-}
-
-.Game-2048-Cell-Grow {
-    opacity:0.5;
 }
 
 #Game-2048-Body {
@@ -112,54 +106,56 @@
 }
 
 .Game-2048-DirectButton {
+    pointer-events:none;
     background-position: center center;
     background-repeat: no-repeat;
     background-size: contain;
     transition: background-color ease-out 1s,background-image 1s ease-out 0.4s;
 }
+.Game-2048-DirectButton-Top-hover {
+    background-color: black;
+    background-image: url('../Resources/index/cross_v_W.png');
+    height: 17.6px;
+}
+.Game-2048-DirectButton-Top {
+    background-image: url('../Resources/index/cross_v_B.png');
+    height: 17.6px;
+}
 
-    .Game-2048-DirectButton:hover {
-        background-color: black;
-    }
+.Game-2048-DirectButton-Bottom-hover {
+    background-color: black;
+    background-image: url('../Resources/index/cross_v_W.png');
+    height: 17.6px;
+    transform: rotate(180deg);
+}
+.Game-2048-DirectButton-Bottom {
+    background-image: url('../Resources/index/cross_v_B.png');
+    height: 17.6px;
+    transform: rotate(180deg);
+}
 
-    .Game-2048-DirectButton#Game-2048-DirectButton-Top {
-        background-image: url('../Resources/index/cross_v_B.png');
-        height: 17.6px;
-    }
+.Game-2048-DirectButton-Right-hover {
+    background-color: black;
+    background-image: url('../Resources/index/cross_h_W.png');
+    width: 17.6px;
+    height: 204.8px;
+    transform: rotate(180deg)
+}
+.Game-2048-DirectButton-Right {
+    background-image: url('../Resources/index/cross_h_B.png');
+    width: 17.6px;
+    height: 204.8px;
+    transform: rotate(180deg)
+}
 
-        .Game-2048-DirectButton#Game-2048-DirectButton-Top:hover {
-            background-image: url('../Resources/index/cross_v_W.png');
-        }
-
-    .Game-2048-DirectButton#Game-2048-DirectButton-Bottom {
-        background-image: url('../Resources/index/cross_v_B.png');
-        height: 17.6px;
-        transform: rotate(180deg);
-    }
-
-        .Game-2048-DirectButton#Game-2048-DirectButton-Bottom:hover {
-            background-image: url('../Resources/index/cross_v_W.png');
-            height: 17.6px;
-            transform: rotate(180deg);
-        }
-
-    .Game-2048-DirectButton#Game-2048-DirectButton-Left {
-        background-image: url('../Resources/index/cross_h_B.png');
-        width: 17.6px;
-        height: 204.8px;
-    }
-
-        .Game-2048-DirectButton#Game-2048-DirectButton-Left:hover {
-            background-image: url('../Resources/index/cross_h_W.png');
-        }
-
-    .Game-2048-DirectButton#Game-2048-DirectButton-Right {
-        background-image: url('../Resources/index/cross_h_B.png');
-        width: 17.6px;
-        height: 204.8px;
-        transform: rotate(180deg)
-    }
-
-        .Game-2048-DirectButton#Game-2048-DirectButton-Right:hover {
-            background-image: url('../Resources/index/cross_h_W.png');
-        }
+.Game-2048-DirectButton-Left-hover {
+    background-color: black;
+    background-image: url('../Resources/index/cross_h_W.png');
+    width: 17.6px;
+    height: 204.8px;
+}
+.Game-2048-DirectButton-Left {
+    background-image: url('../Resources/index/cross_h_B.png');
+    width: 17.6px;
+    height: 204.8px;
+}
