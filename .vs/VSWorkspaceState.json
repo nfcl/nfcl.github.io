@@ -2,9 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\Css",
-    "\\Resources",
-    "\\Resources\\index"
+    "\\Js",
+    "\\Js\\index"
   ],
-  "SelectedNode": "\\Resources\\index\\cross.png",
+  "SelectedNode": "\\Css\\index.css",
   "PreviewInSolutionExplorer": false
 }

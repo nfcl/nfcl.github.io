@@ -85,7 +85,8 @@
     line-height: 50px;
     user-select: none;
     background-color: black;
-    transition: opacity 2s;
+    transition: left 0.25s, opacity 0.5s,top 0.25s,bottom 0.25s,right 0.25s;
+    position: relative;
 }
 .Game-2048-Cell-Default {
     opacity:1;
